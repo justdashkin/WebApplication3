@@ -1,34 +1,149 @@
 ﻿@{
+
     Layout = null;
 }
 
 <!DOCTYPE html>
-
-<html>
+<html lang="en">
 <head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Events in Epam</title>
+    <meta charset="UTF-8">
+    <title>Document</title>
+
+    <link href="~/Content/reset.css" rel="stylesheet" />
+    <link href="~/Content/fonts.css" rel="stylesheet" />
+    <link href="~/Content/styles.css" rel="stylesheet" />
+    <link href="~/Content/media-queries-index.css" rel="stylesheet" />
+    <link href="~/Content/owl.carousel.css" rel="stylesheet" />
+
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="~/Scripts/jquery-2.2.0.min.js"></script>
+    <script src="~/Scripts/owl.carousel.min.js"></script>
+    <script src="~/Scripts/db.js"></script>
+    <script src="~/Scripts/index.js"></script>
 </head>
 <body>
-    <div>
-        <h3>Actual Events</h3>
-        <table>
-            <tr>
-                <td><p>Name</p></td>
-                <td><p>Description</p></td>
-                <td></td>
-            </tr>
-            @foreach (var b in ViewBag.Events)
-            {
-                <tr>
-                    <td><p>@b.Name</p></td>
-                    @*<td><p>@b.Author</p></td>*@
-                    <td><p>@b.Description</p></td>
-                    <td><p><a href="/Home/Edit/@b.Id">Change</a></p></td>
-                </tr>
-            }
-        </table>
+    <div id="wrapper">
+        <header>
+            <a id="logo" href="index.html">
+                <div id="logo-text">SH</div>
+            </a>
+            <div id="basket">
+                <a href="shop-cart.html">
+                    <img class="basket-img-small" src="~/Content/img/icon_basket_small.png" alt="icon_search"><img class="basket-img-big" src="~/Content/img/icon_basket_big.png" alt="icon_search"><span> Basket (<span class="numb-items"></span>)</span>
+                </a>
+            </div>
+            <form action="" class="form-search">
+                <button class="search-butt" type="button"><img class="icon-search" src="~/Content/img/icon_search.png" alt="icon_search"></button>
+                <input class="input-search" type="search" placeholder=" Search something...">
+            </form>
+            <nav id="nav-menu">
+                <ul>
+                    <li><a href="">Sports</a></li>
+                    <li><a href="">Art</a></li>
+                    <li><a href="">Cars</a></li>
+                    <li><a href="">Education</a></li>
+                    <!--<li><a href="">Holidays</a></li>-->
+                    <li><a href="">Other</a></li>
+                </ul>
+            </nav>
+
+            <hr class="hr-top">
+            <hr class="hr-top-2">
+        </header>
+        <section id="headings">
+            <h1>EVENTS IN EPAM SYSTEMS</h1>
+            <span class="subheader-h1">As you know, EPAM provides a lot of interesting events for EPAMers</span>
+            <a href="http://localhost:58869/Events/Create" class="white-button">ADD NEW EVENT</a>
+        </section>
+        <section id="preview-photo">
+            <div class="preview-photo-div">
+                <a href="category-all.html" id="photo-1-link">
+                    <div class="photo-1"></div>
+                </a>
+                <a href="category-all.html" id="photo-2-link">
+                    <div class="photo-2">
+                        <h2>join us</h2>
+                        <br><span>next event</span>
+                    </div>
+                </a>
+                <a href="category-all.html" id="photo-3-link">
+                    <div class="photo-1"></div>
+                </a>
+                <a href="category-all.html" id="photo-4-link">
+                    <div class="photo-2">
+                        <h2>join us</h2>
+                        <br><span>next event</span>
+                    </div>
+                </a>
+                <a href="category-all.html" id="photo-4-link">
+                    <div class="photo-2">
+                        <h2>join us</h2>
+                        <br><span>next event</span>
+                    </div>
+                </a>
+                <a href="category-all.html" id="photo-1-link">
+                    <div class="photo-1"></div>
+                </a>
+                <a href="category-all.html" id="photo-2-link">
+                    <div class="photo-2">
+                        <h2>join us</h2>
+                        <br><span>next event</span>
+                    </div>
+                </a>
+                <a href="category-all.html" id="photo-4-link">
+                    <div class="photo-1"></div>
+                </a>
+            </div>
+        </section>
+
+        <section id="subscribe">
+            <h2>sign up to receive our updates</h2>
+            <span class="subheader-h2">Nulla ipsum dolor lacus, suscipit adipiscing. Cum sociis natoque penatibus et ultrices volutpat.</span>
+            <form action="" class="form-subscribe">
+                <input type="text" placeholder="Your e-mail">
+                <button type="submit" name="button">add</button>
+            </form>
+        </section>
+        
+        <footer>
+            <div class="footer-div">
+                <ul class="collection">
+                    <li class="headings">SECTION</li>
+                    <li><a href="">Sports</a></li>
+                    <li><a href="">Art</a></li>
+                    <li><a href="">Cars</a></li>
+                    <li><a href="">Education</a></li>
+                    <li><a href="">Holidays</a></li>
+                    <li><a href="">Other</a></li>
+                </ul>
+                <ul class="site">
+                    <li class="headings">SITE</li>
+                    <li><a href="">Terms of Service</a></li>
+                    <li><a href="">Privacy Policy</a></li>
+                    <li><a href="">Copyright Policy</a></li>
+                    <li><a href="">Press Kit</a></li>
+                    <li><a href="">Support</a></li>
+                </ul>
+                <ul class="shop">
+                    <li class="headings">STORY</li>
+                    <li><a href="">About Us</a></li>
+                    <li><a href="">Career</a></li>
+                    <li><a href="">Contact</a></li>
+                </ul>
+                <ul class="social">
+                    <li class="headings">SOCIAL</li>
+                    <li>Shoper is made with love in Warsaw ,</li>
+                    <li>2014 &copy All rights reserved. EI Passion</li>
+                    <li class="icons">
+                        <a class="icon" href=""><img src="~/Content/img/icon_twit.png" alt=""></a>
+                        <a class="icon" href=""><img src="~/Content/img/icon_face.png" alt=""></a>
+                        <a class="icon" href=""><img src="~/Content/img/icon_photo.png" alt=""></a>
+                    </li>
+                </ul>
+            </div>
+        </footer>
     </div>
 </body>
 </html>
-
