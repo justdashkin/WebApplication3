@@ -1,0 +1,29 @@
+﻿@using WebApplication3.Models
+@model Event
+@{
+    ViewBag.Title = "EventDetails";
+}
+
+<fieldset>
+    <legend>Info about Event</legend>
+
+    <div class="display-label"><b>Event's name</b></div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Name)
+    </div>
+
+    <div class="display-label"><b>Description</b></div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Description)
+    </div>
+
+    <div class="display-label"><b>Authors</b></div>
+    <ul>
+        @foreach (Author c in Model.Authors)
+        {
+            <li>@c.Surname</li>
+        }
+    </ul>
+
+</fieldset>
+

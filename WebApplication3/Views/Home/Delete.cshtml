@@ -1,0 +1,25 @@
+﻿
+@model WebApplication3.Models.Event
+<h2>Delete Event</h2>
+<dl>
+    <dt>Event's name</dt>
+    <dd>
+        @Html.DisplayFor(model => model.Name)
+    </dd>
+
+    <dt>Description</dt>
+    <dd>
+        @Html.DisplayFor(model => model.Description)
+    </dd>
+
+    <dt>Authors</dt>
+    <dd>
+        @Html.DisplayFor(model => model.Authors)
+    </dd>
+</dl>
+
+@using (Html.BeginForm())
+{
+    <input type="submit" value="Удалить" />
+}
+

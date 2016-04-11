@@ -71,5 +71,122 @@ namespace WebApplication3.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        //редактирование 
+        [HttpGet]
+        public ActionResult EditEvent(int? id)
+        {
+            if (id == null)
+            {
+                return HttpNotFound();
+            }
+            Event event1 = db.Events.Find(id);
+
+            if (event1 == null)
+            {
+                return HttpNotFound();
+            }
+            return View(event1);
+        }
+
+        //сохранение редактирования
+        [HttpPost]
+        public ActionResult EditEvent(Event event1)
+        {
+            db.Entry(event1).State = EntityState.Modified;
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+        //добавление собітия
+        [HttpGet]
+        public ActionResult Create()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult Create(Event event1)
+        {
+            db.Events.Add(event1);
+            db.SaveChanges();
+
+            return RedirectToAction("Index");
+        }
+
+        //удаление события
+        [HttpGet]
+        public ActionResult Delete(int? id)
+        {
+            if (id == null)
+            {
+                return HttpNotFound();
+            }
+            Event b = db.Events.Find(id);
+            if (b == null)
+            {
+                return HttpNotFound();
+            }
+            return View(b);
+        }
+        [HttpPost, ActionName("Delete")]
+        public ActionResult DeleteConfirmed(int? id)
+        {
+            if (id == null)
+            {
+                return HttpNotFound();
+            }
+            Event b = db.Events.Find(id);
+            if (b == null)
+            {
+                return HttpNotFound();
+            }
+            db.Events.Remove(b);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+        //детали по событию
+        public ActionResult EventDetails(int id = 0)
+        {
+            Event event1 = db.Events.Find(id);
+            if (event1 == null)
+            {
+                return HttpNotFound();
+            }
+            return View(event1);
+        }
+
+        //редактирование со связью многие ко многим для события
+        public ActionResult EditEventAuthors(int? id)
+        {
+            Event event1 = db.Events.Find(id);
+            if (event1 == null)
+            {
+                return HttpNotFound();
+            }
+            ViewBag.Authors = db.Authors.ToList();
+            return View(event1);
+        }
+
+        [HttpPost]
+        public ActionResult EditEventAuthors(Event event1, int[] writtenAuthors)
+        {
+            Event newEvent = db.Events.Find(event1.Id);
+            newEvent.Name = event1.Name;
+            newEvent.Description = event1.Description;
+
+            newEvent.Authors.Clear();
+            if (writtenAuthors != null)
+            {
+                //получаем авторов
+                foreach (var c in db.Authors.Where(co => writtenAuthors.Contains(co.Id)))
+                {
+                    newEvent.Authors.Add(c);
+                }
+            }
+
+            db.Entry(newEvent).State = EntityState.Modified;
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
     }
 }

@@ -1,0 +1,21 @@
+﻿@model WebApplication3.Models.Event
+
+<h2>New Event</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.LabelFor(model => model.Name, "Event's name")
+    <br />
+    @Html.EditorFor(model => model.Name)
+    <br /><br />
+    @Html.LabelFor(model => model.Description, "Description")
+    <br />
+    @Html.EditorFor(model => model.Description)
+    <br /><br />
+    @Html.LabelFor(model => model.Authors, "Authors")
+    <br />
+    @Html.EditorFor(model => model.Authors)
+    <br /><br />
+    <input type="submit" value="Add" />
+}
+

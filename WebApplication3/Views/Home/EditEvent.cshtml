@@ -1,0 +1,27 @@
+﻿
+@model WebApplication3.Models.Event
+<h2>Event № @Model.Id</h2>
+@using (Html.BeginForm("EditEvent", "Home", FormMethod.Post))
+{
+    <fieldset>
+        @Html.HiddenFor(m => m.Id)
+        <p>
+            @Html.LabelFor(m => m.Name, "Event's name")
+            <br />
+            @Html.EditorFor(m => m.Name)
+        </p>
+        <p>
+            @Html.LabelFor(m => m.Description, "Description")
+            <br />
+            @Html.EditorFor(m => m.Description)
+
+        </p>
+        @*<p>
+            @Html.LabelFor(m => m.Authors, "Authors")
+            <br />
+            @Html.EditorFor(m => m.Authors)
+        </p>*@
+        <p><input type="submit" value="Change" /></p>
+    </fieldset>
+}
+
