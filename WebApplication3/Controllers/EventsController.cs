@@ -48,6 +48,7 @@ namespace WebApplication3.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Id,Name,Description")] Event @event)
         {
+           
             if (ModelState.IsValid)
             {
                 db.Events.Add(@event);

@@ -1,44 +1,91 @@
 ﻿<!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
+    <meta charset="UTF-8">
+    <title>Epam Events</title>
 
+    <link href="~/Content/reset.css" rel="stylesheet" />
+    <link href="~/Content/fonts.css" rel="stylesheet" />
+    <link href="~/Content/styles.css" rel="stylesheet" />
+    <link href="~/Content/media-queries-index.css" rel="stylesheet" />
+    <link href="~/Content/owl.carousel.css" rel="stylesheet" />
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="~/Scripts/jquery-2.2.0.min.js"></script>
+    <script src="~/Scripts/owl.carousel.min.js"></script>
+    <script src="~/Scripts/db.js"></script>
+    <script src="~/Scripts/index.js"></script>
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+    <div id="wrapper">
+        <header>
+            <a id="logo" href="http://localhost:58869/Home/Index">
+                <div id="logo-text">EE</div>
+            </a>
+            @*<div id="basket">
+                <a href="shop-cart.html">
+                    <img class="basket-img-small" src="~/Content/img/icon_basket_small.png" alt=" "><img class="basket-img-big" src="~/Content/img/icon_basket_big.png" alt=" "><span> Basket (<span class="numb-items"></span>)</span>
+                </a>
+            </div>*@
+            <form action="" class="form-search">
+                <button class="search-butt" type="button"><img class=" " src="~/Content/img/icon_search.png" alt=" "></button>
+                <input class="input-search" type="search" placeholder=" Search something...">
+            </form>
+            <nav id="nav-menu">
+                <ul>
+                    <li><a href="http://localhost:58869/Events">Events</a></li>
+                    <li><a href="http://localhost:58869/Authors">Authors</a></li>
+                    <li><a href="http://localhost:58869/Gallery">Gallery</a></li>
+                    <li><a href="">Other</a></li>
                 </ul>
-                @Html.Partial("_LoginPartial")
-            </div>
-        </div>
-    </div>
-    <div class="container body-content">
+            </nav>
+
+            <hr class="hr-top">
+            
+        </header>
+        <hr class="hr-top">
         @RenderBody()
-        <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+           
+            <div class="footer-div">
+                <hr class="hr-top-2">
+                <ul class="collection">
+                    <li class="headings">SECTION</li>
+                    <li><a href="http://localhost:58869/Events">Events</a></li>
+                    <li><a href="http://localhost:58869/Authors">Authors</a></li>
+                    <li><a href="http://localhost:58869/Gallery">Gallery</a></li>
+                    <li><a href="">Other</a></li>
+                </ul>
+                <ul class="site">
+                    <li class="headings">SITE</li>
+                    <li><a href="">Terms of Service</a></li>
+                    <li><a href="">Privacy Policy</a></li>
+                    <li><a href="">Copyright Policy</a></li>
+                    <li><a href="">Press Kit</a></li>
+                    <li><a href="">Support</a></li>
+                </ul>
+                <ul class="shop">
+                    <li class="headings">STORY</li>
+                    <li><a href="https://www.epam-group.ru/">About Us</a></li>
+                    <li><a href="https://www.epam-group.ru/careers">Career</a></li>
+                    <li><a href="https://www.epam-group.ru/contact-us">Contact</a></li>
+                </ul>
+                <ul class="social">
+                    <li class="headings">SOCIAL</li>
+                    <li>Made with love in Kharkiv,</li>
+                    <li>2016 &copy All rights reserved.</li>
+                    <li class="icons">
+                        <a class="icon" href="https://twitter.com"><img src="~/Content/img/icon_twit.png" alt="twitter"></a>
+                        <a class="icon" href="https://facebook.com"><img src="~/Content/img/icon_face.png" alt="facebook"></a>
+                        <a class="icon" href="https://instagram.com"><img src="~/Content/img/icon_photo.png" alt="instagram"></a>
+                    </li>
+                </ul>
+            </div>
         </footer>
     </div>
-
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
 </body>
 </html>
+
+
