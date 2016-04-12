@@ -5,10 +5,10 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<h2 style="margin-left: 25px">Author`s Details</h2>
 
-<div>
-    <h4>Author</h4>
+<div id="subscribe">
+
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -38,7 +38,7 @@
         </dd>
     </dl>
 </div>
-<p>
+<p id="subscribe">
     @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
     @Html.ActionLink("Back to List", "Index")
 </p>

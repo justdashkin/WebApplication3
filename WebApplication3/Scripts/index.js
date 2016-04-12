@@ -44,7 +44,7 @@ $(document).ready(function() {
     if ($('.search-butt').hasClass('active-butt')) {
         $('.icon-search').attr("src", "~/Content/img/icon_search_white.png");
     } else {
-        $('.icon-search').attr("src", "i~/Content/img/icon_search.png");
+        $('.icon-search').attr("src", "~/Content/img/icon_search.png");
     }
   }
 

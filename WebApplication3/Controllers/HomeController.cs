@@ -19,7 +19,17 @@ namespace WebApplication3.Controllers
             // передаем все полученный объекты в динамическое свойство Books в ViewBag
             ViewBag.Events = events;
 
+            
+
+            var cookie = new HttpCookie("LastVisit")
+            {
+                Name = "test_cookie",
+                Value = DateTime.Now.ToString("dd.MM.yyyy"),
+                Expires = DateTime.Now.AddMinutes(10),
+            };
+            Response.SetCookie(cookie);
             return View(db.Authors.ToList());
+
         }
 
         public ActionResult Details(int id = 0)
@@ -188,5 +198,8 @@ namespace WebApplication3.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
-    }
+
+      
+
+    } 
 }

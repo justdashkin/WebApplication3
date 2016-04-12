@@ -1,0 +1,23 @@
+﻿@using WebApplication3.Models
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+<table>
+    @{
+        List<Event> events = ViewBag.Events1;
+
+        foreach (Event c in events)
+        {
+            <tr>
+                <td style="padding:10px !important;">
+                    @c.Name
+                </td>
+                <td style="padding:10px !important;">@c.Description</td>
+            </tr>
+
+        }
+
+    }
+</table>

@@ -4,12 +4,12 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2 style="margin-left: 25px">Events</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
+<p class="white-button" style="margin-left:auto; margin-right: auto;">
+        @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
+<table class="table" id="subscribe">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.Name)
